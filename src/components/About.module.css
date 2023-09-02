@@ -1,0 +1,45 @@
+.aboutWrapper{
+    margin-top: 10rem;
+}
+.imgContainer{
+    width: 100%;
+}
+.img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 2rem;
+}
+.imgContainer{
+    position: relative;
+}
+.imgContainer h2{
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    font-size: var(--h2Size);
+    color: var(--lightGrey);
+}
+.services {
+    margin-top: 4rem;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    row-gap: 2rem;
+}
+.services li{
+    text-align: center;
+    background-color: var(--lightGrey);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    font-weight: 100;
+}
+@media only screen and (min-width: 768px){
+    .services{
+        column-gap: 6rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

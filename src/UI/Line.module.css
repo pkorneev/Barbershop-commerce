@@ -1,0 +1,10 @@
+.line{
+    width: 96px;
+    height: 1rem;
+    border-top: 2px solid black;
+}
+@media only screen and(min-width: 600px){
+    .line{
+        width: 126px;
+    }
+}

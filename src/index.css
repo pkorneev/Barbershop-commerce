@@ -1,0 +1,14 @@
+:root{
+  --lightGrey: rgb(237, 237, 237);
+  --transparrentWhite: rgba(255, 255, 255, 0.5);
+  --h2Size: 3rem;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#root{
+  position: relative;
+}
