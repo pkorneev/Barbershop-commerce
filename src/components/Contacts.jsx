@@ -1,6 +1,7 @@
 import styles from "./Contacts.module.css";
 import Wrapper from "../UI/Wrapper";
 import Line from "../UI/Line";
+import { motion } from "framer-motion";
 const Contacts = () => {
   return (
     <div className={styles.contactsWrapper}>
@@ -12,7 +13,13 @@ const Contacts = () => {
             <h3 className={styles.h3}>Contacts</h3>
             <span className={styles.first}>+122 787 12 13</span>
             <span>barbershop@gmail.com</span>
-            <button className={styles.reserveBtn}>Make reservation</button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 500 }}
+              className={styles.reserveBtn}
+            >
+              Make reservation
+            </motion.button>
           </div>
           <div className={styles.whereColumn}>
             <h3 className={styles.h3}>Opening hours</h3>

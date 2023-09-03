@@ -2,6 +2,7 @@ import styles from "./Price.module.css";
 import Wrapper from "../UI/Wrapper";
 import Line from "../UI/Line";
 import Card from "./Card";
+import { motion } from "framer-motion";
 const hair = [
   {
     name: "Basic",
@@ -60,7 +61,13 @@ const Price = () => {
             each visitor. We make haircuts according to the shape of the head,
             face and hair type.
           </p>
-          <button className={styles.reserveBtn}>Make reservation</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 500 }}
+            className={styles.reserveBtn}
+          >
+            Make reservation
+          </motion.button>
         </div>
         <h3 className={styles.nameOfCards}>Hair</h3>
         <div className={styles.cards}>
