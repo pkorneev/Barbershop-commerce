@@ -1,0 +1,45 @@
+.contactsWrapper{
+    margin-top: var(--marginBetweenSections);
+}
+.h2{
+    margin-top: 1rem;
+    font-size: var(--h2Size);
+}
+.h3{
+    font-size: 2rem;
+}
+.whereContent{
+    margin-top: var(--marginInsideSections);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+}
+.whereColumn{
+    display: flex;
+    flex-direction: column;
+}
+.whereColumn span{
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+.whereColumn .first{
+    margin-top: 2rem;
+}
+.reserveBtn{
+    margin-top: 1rem;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    border-radius: 3rem;
+}
+@media only screen and (min-width: 768px){
+    .whereContent{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+}

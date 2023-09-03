@@ -1,5 +1,5 @@
 .aboutWrapper{
-    margin-top: 10rem;
+    margin-top: var(--marginBetweenSections);
 }
 .imgContainer{
     width: 100%;
@@ -22,7 +22,7 @@
     color: var(--lightGrey);
 }
 .services {
-    margin-top: 4rem;
+    margin-top: var(--marginInsideSections);
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

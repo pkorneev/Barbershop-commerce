@@ -1,0 +1,8 @@
+.footerWrapper {
+    margin-top: 5rem;
+    background-color: var(--lightGrey);
+    padding: 5rem 0;
+}
+.footerWrapper p {
+    text-align: center;
+}

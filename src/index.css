@@ -2,6 +2,8 @@
   --lightGrey: rgb(237, 237, 237);
   --transparrentWhite: rgba(255, 255, 255, 0.5);
   --h2Size: 3rem;
+  --marginBetweenSections: 10rem;
+  --marginInsideSections: 5rem;
 }
 *{
   margin: 0;
