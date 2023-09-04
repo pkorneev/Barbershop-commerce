@@ -3,6 +3,7 @@ import Wrapper from "../UI/Wrapper";
 import Line from "../UI/Line";
 import Card from "./Card";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 const hair = [
   {
     name: "Basic",
@@ -50,10 +51,23 @@ const beard = [
   },
 ];
 const Price = () => {
+  const [hairRef, hairInView] = useInView({
+    triggerOnce: true, // Trigger animation only once when it comes into view
+    threshold: 0.2, // Adjust the threshold as needed
+  });
+  const [beardRef, beardInView] = useInView({
+    triggerOnce: true, // Trigger animation only once when it comes into view
+    threshold: 0.2, // Adjust the threshold as needed
+  });
   return (
     <div className={styles.priceWrapper}>
       <Wrapper>
-        <div className={styles.priceHeader}>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: "spring", duration: 0.6 }}
+          className={styles.priceHeader}
+        >
           <Line />
           <h2 className={styles.h2}>Types of haircuts with prices</h2>
           <p className={styles.text}>
@@ -68,9 +82,22 @@ const Price = () => {
           >
             Make reservation
           </motion.button>
-        </div>
+        </motion.div>
         <h3 className={styles.nameOfCards}>Hair</h3>
-        <div className={styles.cards}>
+        <motion.ul
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+          ref={hairRef}
+          initial="hidden"
+          animate={hairInView ? "visible" : "hidden"}
+          className={styles.cards}
+        >
           {hair.map((element, index) => {
             return (
               <Card
@@ -82,9 +109,22 @@ const Price = () => {
               />
             );
           })}
-        </div>
+        </motion.ul>
         <h3 className={styles.nameOfCards}>Beard</h3>
-        <div className={styles.cards}>
+        <motion.ul
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+          ref={beardRef}
+          initial="hidden"
+          animate={beardInView ? "visible" : "hidden"}
+          className={styles.cards}
+        >
           {beard.map((element, index) => {
             return (
               <Card
@@ -96,7 +136,7 @@ const Price = () => {
               />
             );
           })}
-        </div>
+        </motion.ul>
       </Wrapper>
     </div>
   );
