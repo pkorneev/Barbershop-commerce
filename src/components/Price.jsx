@@ -76,8 +76,8 @@ const Price = () => {
             face and hair type.
           </p>
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 500 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
             className={styles.reserveBtn}
           >
             Make reservation

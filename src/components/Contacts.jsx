@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 const Contacts = () => {
   const [ref, inView] = useInView({
     triggerOnce: true, // Trigger animation only once when it comes into view
-    threshold: 0.2, // Adjust the threshold as needed
+    threshold: 0.4, // Adjust the threshold as needed
   });
 
   return (
@@ -37,8 +37,8 @@ const Contacts = () => {
             <span className={styles.first}>+122 787 12 13</span>
             <span>barbershop@gmail.com</span>
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 500 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className={styles.reserveBtn}
             >
               Make reservation

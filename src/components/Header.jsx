@@ -1,8 +1,33 @@
 import styles from "./Header.module.css";
 import Wrapper from "../UI/Wrapper";
-import { motion } from "framer-motion";
-
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 const Header = () => {
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [boxTop, setBoxTop] = useState(0);
+  const [boxHeight, setBoxHeight] = useState(0);
+
+  const handleResize = () => {
+    setWindowHeight(window.innerHeight);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    const boxElement = document.getElementById("myBox"); // Replace 'myBox' with the actual ID of your box
+    const boxRect = boxElement.getBoundingClientRect();
+    setBoxTop(boxRect.top);
+    setBoxHeight(boxRect.height);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  const { scrollY } = useScroll();
+  const spaceBelowBox = windowHeight - (boxTop + boxHeight);
+
+  const yContent = useTransform(
+    scrollY,
+    [0, spaceBelowBox],
+    [0, spaceBelowBox]
+  );
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.backgroundImage}></div>
@@ -37,8 +62,8 @@ const Header = () => {
               </ul>
             </nav>
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 500 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className={styles.reserveBtn}
             >
               Make reservation
@@ -48,10 +73,12 @@ const Header = () => {
       </motion.div>
       <Wrapper>
         <motion.div
+          style={{ y: yContent }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, type: "spring" }}
           className={styles.mainContent}
+          id="myBox"
         >
           <h1 className={styles.h1}>Classic Barbershop</h1>
           <p className={styles.description}>
@@ -61,8 +88,8 @@ const Header = () => {
             aliquip ex ea commodo consequat.
           </p>
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 500 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
             className={`${styles.reserveBtn} ${styles.second}`}
           >
             Make reservation

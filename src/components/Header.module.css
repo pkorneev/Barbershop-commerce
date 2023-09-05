@@ -15,6 +15,10 @@
     width: 100%;
     z-index: 9999;
     background-color: var(--transparrentWhite);
+    backdrop-filter: blur(8px);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
 }
 .backgroundImage {
     background: url('../assets/background.webp') no-repeat center center fixed;
@@ -63,6 +67,7 @@
     width: fit-content;
     border-radius: 2rem;
     background-color: var(--transparrentWhite);
+    z-index: -1;
 }
 .h1{
     font-size: 2.5rem;
