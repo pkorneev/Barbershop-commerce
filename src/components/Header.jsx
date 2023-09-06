@@ -1,8 +1,12 @@
 import styles from "./Header.module.css";
 import Wrapper from "../UI/Wrapper";
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 const Header = () => {
+  const [lastClickedHair, setLastClickedHair] = useState("");
+  const hairClickedHandler = (name) => {
+    setLastClickedHair(name);
+  };
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.backgroundImage}></div>
@@ -28,9 +32,6 @@ const Header = () => {
                 </li>
                 <li>
                   <a href="">Price</a>
-                </li>
-                <li>
-                  <a href="">Photo</a>
                 </li>
                 <li>
                   <a href="">Contacts</a>

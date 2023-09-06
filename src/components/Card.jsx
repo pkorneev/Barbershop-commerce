@@ -1,5 +1,6 @@
 import styles from "./Card.module.css";
 import { motion } from "framer-motion";
+
 const Card = (props) => {
   return (
     <motion.li
@@ -8,7 +9,12 @@ const Card = (props) => {
         visible: { opacity: 1, y: 0, scale: 1 },
       }}
       transition={{ type: "spring" }}
-      className={styles.card}
+      className={
+        props.lastClicked === props.name
+          ? `${styles.card} ${styles.selected}`
+          : styles.card
+      }
+      onClick={() => props.onClick(props.name)}
     >
       <h4 className={styles.name}>{props.name}</h4>
       <p className={styles.description}>{props.description}</p>

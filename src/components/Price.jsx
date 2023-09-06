@@ -4,53 +4,59 @@ import Line from "../UI/Line";
 import Card from "./Card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 const hair = [
   {
-    name: "Basic",
+    name: "Only hair",
     description: "washing, haircut",
     price: 15,
     duration: "20 minutes",
   },
   {
-    name: "Comfort",
-    description: "washing, haircut, styling",
-    price: 17,
-    duration: "40 minutes",
-  },
-  {
-    name: "Comfort+",
-    description: "washing, haircut, styling, all you can drink, snacks",
-    price: 22,
-    duration: "40 minutes",
-  },
-  {
-    name: "All in",
-    description: "washing, haircut, shaving,  all you can drink, snacks",
-    price: 30,
-    duration: "60 minutes",
-  },
-];
-const beard = [
-  {
-    name: "Basic",
-    description: "Shaving",
-    price: 10,
-    duration: "20 minutes",
-  },
-  {
-    name: "Comfort",
-    description: "Shaving, all you can drink, snacks",
+    name: "Only beard",
+    description: "shaving, haircut",
     price: 15,
     duration: "20 minutes",
   },
   {
-    name: "All in",
-    description: "Shaving, massage, all you can drink, snacks",
+    name: "Hair + beard",
+    description: "washing, haircut, shaving, styling",
     price: 20,
-    duration: "20 minutes",
+    duration: "40 minutes",
+  },
+  {
+    name: "Comfort hair",
+    description:
+      "washing, haircut, styling, massage, all you can drink, snacks",
+    price: 25,
+    duration: "40 minutes",
+  },
+  {
+    name: "Comfort beard",
+    description: "shaving, massage, all you can drink, snacks",
+    price: 25,
+    duration: "40 minutes",
+  },
+  {
+    name: "All in",
+    description:
+      "washing, haircut, shaving, massage,  all you can drink, snacks",
+    price: 30,
+    duration: "60 minutes",
   },
 ];
+
 const Price = () => {
+  const [lastClickedHair, setLastClickedHair] = useState("");
+
+  const hairClickedHandler = (name) => {
+    if (lastClickedHair === name) {
+      setLastClickedHair("");
+    } else {
+      setLastClickedHair(name);
+    }
+  };
+
   const [hairRef, hairInView] = useInView({
     triggerOnce: true, // Trigger animation only once when it comes into view
     threshold: 0.2, // Adjust the threshold as needed
@@ -83,7 +89,7 @@ const Price = () => {
             Make reservation
           </motion.button>
         </motion.div>
-        <h3 className={styles.nameOfCards}>Hair</h3>
+        <h3 className={styles.nameOfCards}>Packages</h3>
         <motion.ul
           variants={{
             hidden: { opacity: 0, y: 30 },
@@ -98,41 +104,16 @@ const Price = () => {
           animate={hairInView ? "visible" : "hidden"}
           className={styles.cards}
         >
-          {hair.map((element, index) => {
+          {hair.map((element) => {
             return (
               <Card
-                key={index}
+                key={element.name}
                 name={element.name}
                 description={element.description}
                 price={element.price}
                 duration={element.duration}
-              />
-            );
-          })}
-        </motion.ul>
-        <h3 className={styles.nameOfCards}>Beard</h3>
-        <motion.ul
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-          ref={beardRef}
-          initial="hidden"
-          animate={beardInView ? "visible" : "hidden"}
-          className={styles.cards}
-        >
-          {beard.map((element, index) => {
-            return (
-              <Card
-                key={index}
-                name={element.name}
-                description={element.description}
-                price={element.price}
-                duration={element.duration}
+                onClick={hairClickedHandler}
+                lastClicked={lastClickedHair}
               />
             );
           })}

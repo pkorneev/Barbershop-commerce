@@ -6,6 +6,10 @@
     align-items: center;
     border-radius: 2rem;
     width: 320px;
+    cursor: pointer;
+}
+.card.selected{
+    background-color: rgb(199, 199, 199);
 }
 .name{
     font-size: 2rem;

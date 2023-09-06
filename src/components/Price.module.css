@@ -33,3 +33,8 @@
     flex-wrap: wrap;
 }
 ul{ list-style: none;}
+@media only screen and (max-width: 768px) {
+    .cards{
+        justify-content: center;
+    }
+}
