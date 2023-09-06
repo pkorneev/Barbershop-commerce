@@ -4,7 +4,8 @@ import Line from "../UI/Line";
 import Card from "./Card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { MyContext } from "../App";
+import { useContext } from "react";
 const hair = [
   {
     name: "Only hair",
@@ -47,15 +48,7 @@ const hair = [
 ];
 
 const Price = () => {
-  const [lastClickedHair, setLastClickedHair] = useState("");
-
-  const hairClickedHandler = (name) => {
-    if (lastClickedHair === name) {
-      setLastClickedHair("");
-    } else {
-      setLastClickedHair(name);
-    }
-  };
+  const { lastClickedHair, hairClickedHandler } = useContext(MyContext);
 
   const [hairRef, hairInView] = useInView({
     triggerOnce: true, // Trigger animation only once when it comes into view
