@@ -1,0 +1,11 @@
+.margin {
+    width: 100%;
+    height: 69px;
+}
+.reservationContent{
+    margin-top: var(--marginInsideSections);
+}
+.reservationContent h2{
+    margin-top: 1rem;
+    font-size: var(--h2Size);
+}
