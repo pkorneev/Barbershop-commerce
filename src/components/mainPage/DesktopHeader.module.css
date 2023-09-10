@@ -1,0 +1,50 @@
+.fixedHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: var(--transparrentWhite);
+    backdrop-filter: blur(8px);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+.logo{
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+}
+.header nav ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+.header nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+   
+}
+.header nav ul li{
+    transition: all .2s linear;
+}
+.header nav ul li:hover{
+    scale: 1.1;
+}
+.reserveBtn{
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    
+    color: white;
+    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    border-radius: 3rem;
+}

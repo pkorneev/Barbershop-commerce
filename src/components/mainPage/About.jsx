@@ -1,6 +1,6 @@
 import styles from "./About.module.css";
-import Wrapper from "../UI/Wrapper";
-import aboutImage from "../assets/about.jpeg";
+import Wrapper from "../../UI/Wrapper";
+import aboutImage from "../../assets/about.jpeg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 const About = (props) => {

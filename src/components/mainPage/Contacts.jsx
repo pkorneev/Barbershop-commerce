@@ -1,8 +1,9 @@
 import styles from "./Contacts.module.css";
-import Wrapper from "../UI/Wrapper";
-import Line from "../UI/Line";
+import Wrapper from "../../UI/Wrapper";
+import Line from "../../UI/Line";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 const Contacts = () => {
   const [ref, inView] = useInView({
     triggerOnce: true, // Trigger animation only once when it comes into view
@@ -36,13 +37,15 @@ const Contacts = () => {
             <h3 className={styles.h3}>Contacts</h3>
             <span className={styles.first}>+122 787 12 13</span>
             <span>barbershop@gmail.com</span>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={styles.reserveBtn}
-            >
-              Make reservation
-            </motion.button>
+            <Link to="/reservation">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className={styles.reserveBtn}
+              >
+                Make reservation
+              </motion.button>
+            </Link>
           </div>
           <div className={styles.whereColumn}>
             <h3 className={styles.h3}>Opening hours</h3>

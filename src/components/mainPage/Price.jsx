@@ -1,11 +1,12 @@
 import styles from "./Price.module.css";
-import Wrapper from "../UI/Wrapper";
-import Line from "../UI/Line";
+import Wrapper from "../../UI/Wrapper";
+import Line from "../../UI/Line";
 import Card from "./Card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MyContext } from "../App";
+import { MyContext } from "../../App";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 const hair = [
   {
     name: "Only hair",
@@ -74,13 +75,15 @@ const Price = () => {
             each visitor. We make haircuts according to the shape of the head,
             face and hair type.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className={styles.reserveBtn}
-          >
-            Make reservation
-          </motion.button>
+          <Link to="/reservation">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className={styles.reserveBtn}
+            >
+              Make reservation
+            </motion.button>
+          </Link>
         </motion.div>
         <h3 className={styles.nameOfCards}>Packages</h3>
         <motion.ul
