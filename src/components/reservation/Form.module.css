@@ -1,0 +1,86 @@
+.form{
+    
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: var(--marginInsideSections);
+    display: flex;
+    flex-direction: column;
+}
+.nameEmailPhone{
+    display: flex;
+    flex-direction: column;
+    
+}
+.name{
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+.firstName, .lastName{
+    flex: 1;
+}
+.firstName input, .lastName input{
+    padding: .5rem;
+}
+.nameEmailPhone label{
+    display: block;
+    font-size: 1.1rem;
+}
+.nameEmailPhone p{
+    font-size: 0.9rem;
+    color: #252525;
+}
+.nameEmailPhone input{
+    width: 100%;
+}
+.emailPhone{
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+.email, .phone{
+    flex: 1;
+}
+.email input, .phone input{
+    padding: .5rem;
+}
+
+.labelServices, .dateAndTime{
+    margin-top: 2rem;
+    display: block;
+    font-size: 1.1rem;
+}
+.services{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+.services label{
+    margin-left: .5rem;
+}
+.dateTime{
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+.date, .time{
+    flex: 1;
+    padding: .5rem;
+}
+
+.submitBtn{
+    margin-top: 3rem;
+    align-self: center;
+    padding: .75rem 2.5rem;
+    background-color: rgb(30, 151, 24);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.submitBtn:active{
+    background-color: #373f39;
+}
