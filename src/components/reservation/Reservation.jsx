@@ -23,7 +23,13 @@ const Reservation = () => {
               className={styles.img}
             />
           </Link>
-          <h2>Book a session</h2>
+          <motion.h2
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, type: "spring" }}
+          >
+            Book a session
+          </motion.h2>
           <Form />
         </div>
       </Wrapper>
