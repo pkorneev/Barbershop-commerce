@@ -4,6 +4,7 @@
 }
 .reservationContent{
     margin-top: var(--marginInsideSections);
+    position: relative;
 }
 .reservationContent h2{
     margin-top: 1rem;

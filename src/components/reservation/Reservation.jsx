@@ -3,7 +3,9 @@ import ReservationHeader from "./ReservationHeader";
 import Wrapper from "../../UI/Wrapper";
 import Footer from "../Footer";
 import Form from "./Form";
-import Line from "../../UI/Line";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import arrowImg from "../../assets/arrow.png";
 const Reservation = () => {
   return (
     <div className={styles.reservationWrapper}>
@@ -11,7 +13,16 @@ const Reservation = () => {
       <div className={styles.margin}></div>
       <Wrapper>
         <div className={styles.reservationContent}>
-          <Line />
+          <Link to="/">
+            <motion.img
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, type: "spring" }}
+              src={arrowImg}
+              alt="Back"
+              className={styles.img}
+            />
+          </Link>
           <h2>Book a session</h2>
           <Form />
         </div>
