@@ -1,0 +1,82 @@
+.fixedHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: var(--transparrentWhite);
+    backdrop-filter: blur(8px);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+    box-shadow: 0px 0px 2px 0px rgba(220, 220, 220, 0.75);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+}
+.logo{
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+}
+.reserveBtn{
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    
+    color: white;
+    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    border-radius: 3rem;
+}
+.img{
+    width: 4rem;
+    filter: invert(0%) sepia(0%) saturate(30%) hue-rotate(179deg) brightness(101%) contrast(100%);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+.img:hover{
+    scale: 1.05;
+}
+.imgBtn{
+    background-color: transparent;
+    border: none;
+}
+.header nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--lightGrey);
+    transition: all .4s linear;
+    transform: translateY(-100dvh);
+    z-index: 9999;
+}
+.header .responsiveNav{
+    transform: none;
+}
+
+.ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.navCloseBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.ul li a{
+    font-size: 2rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: black;
+}

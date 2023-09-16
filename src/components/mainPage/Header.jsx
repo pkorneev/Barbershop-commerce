@@ -2,12 +2,13 @@ import styles from "./Header.module.css";
 import Wrapper from "../../UI/Wrapper";
 import { motion } from "framer-motion";
 import DesktopHeader from "./DesktopHeader";
+import MobileHeader from "./MobileHeader";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.backgroundImage}></div>
-      <DesktopHeader />
+      <MobileHeader />
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
