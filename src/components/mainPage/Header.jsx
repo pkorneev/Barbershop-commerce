@@ -4,11 +4,24 @@ import { motion } from "framer-motion";
 import DesktopHeader from "./DesktopHeader";
 import MobileHeader from "./MobileHeader";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 const Header = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.backgroundImage}></div>
-      <MobileHeader />
+      {screenWidth > 800 ? <DesktopHeader /> : <MobileHeader />}
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
