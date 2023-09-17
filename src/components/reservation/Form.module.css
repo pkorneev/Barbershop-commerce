@@ -85,3 +85,10 @@
 .submitBtn:active{
     background-color: #373737;
 }
+.firstNameInput.err, .lastNameInput.err, .emailInput.err, .numberInput.err, .date.err, .time.err{
+    background-color: rgb(250, 188, 188);
+    border: 1px solid rgb(160, 0, 0);
+}
+.errServices{
+    color: rgb(160, 0, 0);
+}

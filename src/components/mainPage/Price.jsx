@@ -85,7 +85,7 @@ const Price = () => {
             </motion.button>
           </Link>
         </motion.div>
-        <h3 className={styles.nameOfCards}>Packages</h3>
+        <h3 className={styles.nameOfCards}>Choose Package</h3>
         <motion.ul
           variants={{
             hidden: { opacity: 0, y: 30 },
