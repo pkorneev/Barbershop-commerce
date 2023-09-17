@@ -1,6 +1,10 @@
 import styles from "./Form.module.css";
 import { motion } from "framer-motion";
+import { MyContext } from "../../App";
+import { useContext } from "react";
+import { hair } from "../mainPage/Price";
 const Form = () => {
+  const { lastClickedHair, hairClickedHandler } = useContext(MyContext);
   return (
     <motion.form
       initial={{ opacity: 0, x: -60 }}
@@ -9,15 +13,14 @@ const Form = () => {
       className={styles.form}
     >
       <div className={styles.nameEmailPhone}>
-        <label htmlFor="name">Name</label>
         <div className={styles.name}>
           <div className={styles.firstName}>
+            <label htmlFor="name">First Name</label>
             <input type="text" id="name" />
-            <p>First Name</p>
           </div>
           <div className={styles.lastName}>
-            <input type="text" />
-            <p>Last Name</p>
+            <label htmlFor="lastName">Last Name</label>
+            <input type="text" id="lastName" />
           </div>
         </div>
         <div className={styles.emailPhone}>
@@ -35,30 +38,22 @@ const Form = () => {
       </div>
       <p className={styles.labelServices}>Select Services</p>
       <div className={styles.services}>
-        <div>
-          <input type="radio" id="hair" name="service" />
-          <label htmlFor="hair">Only Hair</label>
-        </div>
-        <div>
-          <input type="radio" id="beard" name="service" />
-          <label htmlFor="beard">Only Beard</label>
-        </div>
-        <div>
-          <input type="radio" id="hairBeard" name="service" />
-          <label htmlFor="hairBeard">Hair + Beard</label>
-        </div>
-        <div>
-          <input type="radio" id="comfortHair" name="service" />
-          <label htmlFor="comfortHair">Comfort Hair</label>
-        </div>
-        <div>
-          <input type="radio" id="comfortBeard" name="service" />
-          <label htmlFor="comfortBeard">Comfort Beard</label>
-        </div>
-        <div>
-          <input type="radio" id="allIn" name="service" />
-          <label htmlFor="allIn">All In</label>
-        </div>
+        {hair.map((elem, index) => {
+          return (
+            <div>
+              <input
+                type="radio"
+                key={index}
+                id={elem.name}
+                checked={lastClickedHair === elem.name}
+                onChange={() => hairClickedHandler(elem.name)}
+              />
+              <label htmlFor={elem.name} key={index}>
+                {elem.name}
+              </label>
+            </div>
+          );
+        })}
       </div>
       <p className={styles.dateAndTime}>Date And Time</p>
       <div className={styles.dateTime}>

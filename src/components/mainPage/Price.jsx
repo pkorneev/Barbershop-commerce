@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { MyContext } from "../../App";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-const hair = [
+export const hair = [
   {
     name: "Only hair",
     description: "washing, haircut",
