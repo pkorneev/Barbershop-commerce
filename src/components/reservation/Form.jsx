@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import { MyContext } from "../../App";
 import { useContext, useState, useEffect } from "react";
 import { hair } from "../mainPage/Price";
+import Confirmation from "./Confirmation";
 import useInput from "../../hooks/useInput";
 const Form = () => {
   const { lastClickedHair, hairClickedHandler } = useContext(MyContext);
   const [hairHasError, setHairHasError] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   useEffect(() => {
     if (lastClickedHair !== "") {
       setHairHasError(false);
@@ -91,7 +93,15 @@ const Form = () => {
   ) {
     formIsValid = true;
   }
-
+  const resetAll = () => {
+    resetDateInput();
+    resetEmailInput();
+    resetFirstNameInput();
+    resetLastNameInput();
+    resetNumberInput();
+    resetTimeInput();
+    hairClickedHandler("");
+  };
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (!formIsValid) {
@@ -102,6 +112,8 @@ const Form = () => {
       setDateIsTouched(true);
       setTimeIsTouched(true);
       if (lastClickedHair === "") setHairHasError(true);
+    } else {
+      setShowConfirm(true);
     }
   };
   return (
@@ -112,6 +124,13 @@ const Form = () => {
       className={styles.form}
       onSubmit={onSubmitHandler}
     >
+      {showConfirm && (
+        <Confirmation
+          onClose={setShowConfirm}
+          onReset={resetAll}
+          name={firstName}
+        />
+      )}
       <div className={styles.nameEmailPhone}>
         <div className={styles.name}>
           <div className={styles.firstName}>
