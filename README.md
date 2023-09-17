@@ -1,8 +1,7 @@
-# React + Vite
+# Barbershop business web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an almost ready-to-use web application for a barbershop to run your business. The only thing to change is to connect it to the CMS(replace hardcoded object with services with a data witch you would GET from the CMS, replace reservation form with CMS data to track reservations and conditionally show oportunities).
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
